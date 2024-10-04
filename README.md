@@ -208,3 +208,86 @@ pytest
 ```
 
 This will execute all the tests located in the `tests/` folder and provide feedback on the application behavior.
+
+## Deploying to Heroku
+
+### 1. Install the Heroku CLI
+
+Before deploying the application to Heroku, you need to install the Heroku CLI. You can follow the steps below to install it on your machine.
+
+#### macOS:
+
+You can install the Heroku CLI using Homebrew:
+```bash
+brew tap heroku/brew && brew install heroku
+```
+
+#### Windows:
+
+Download and run the Heroku installer from the [Heroku Dev Center](https://devcenter.heroku.com/articles/heroku-cli).
+
+#### Verify Installation:
+
+Once installed, verify the installation by running:
+
+```bash
+heroku --version
+```
+
+You should see the version of Heroku CLI installed.
+
+### 2. Log in to Heroku
+
+Log in to your Heroku account from the terminal:
+
+```bash
+heroku login
+```
+
+This will open a web browser for you to log in to your Heroku account.
+
+### 3. Prepare the App for Deployment
+
+Ensure your `requirements.txt` and `Procfile` are present in the project root.
+
+- **Procfile**: Create a `Procfile` in the root directory with the following content to tell Heroku how to run the app:
+
+```bash
+web: flask run --host=0.0.0.0 --port=$PORT
+```
+
+### 4. Create a Heroku App
+
+Run the following command to create a new Heroku app:
+
+```bash
+heroku create
+```
+
+### 5. Deploy to Heroku
+
+After you've created your Heroku app, deploy your app using Git:
+
+```bash
+git add .
+git commit -m "Initial commit"
+git push heroku main
+```
+
+### 6. Scale the Application
+
+Heroku apps require at least one running dyno. Scale your app to run one web dyno:
+
+```bash
+heroku ps:scale web=1
+```
+
+### 7. Open the App
+
+Once your app is deployed, you can open it in the browser using:
+
+```bash
+heroku open
+```
+
+Your app should now be live on Heroku!
