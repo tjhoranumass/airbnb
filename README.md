@@ -5,6 +5,33 @@ This is a Flask-based API that predicts Airbnb rental prices based on several fa
 - `/reload`: Reloads the data and trains the model.
 - `/predict`: Predicts the rental price for a given listing.
 
+## Data Source and Prediction Process
+
+### Data Source
+
+The data used for this project comes from the [Inside Airbnb dataset](https://insideairbnb.com/get-the-data/), which provides detailed information about Airbnb listings in various cities. For this particular app, the data for Boston, MA is used.
+
+The dataset includes important features such as:
+- **Price**: The rental price of the listing.
+- **Bedrooms**: The number of bedrooms in the listing.
+- **Bathrooms**: The number of bathrooms in the listing.
+- **Accommodates**: The maximum number of guests the listing can accommodate.
+- **Neighbourhood**: The neighborhood where the listing is located.
+
+The full dataset can be accessed and downloaded from the Inside Airbnb website at [Inside Airbnb - Get the Data](https://insideairbnb.com/get-the-data/).
+
+### Prediction Process
+
+The application makes use of a simple **Linear Regression Model** to predict the rental price of an Airbnb listing based on various input features such as the number of bedrooms, bathrooms, accommodation capacity, and the neighborhood.
+
+The process of prediction is as follows:
+1. **Data Preprocessing**: The data is cleaned and processed. Non-numeric values are removed or converted, and categorical variables like `neighbourhood` are one-hot encoded to make them suitable for machine learning models.
+2. **Model Training**: A linear regression model is trained on the cleaned dataset using features like bedrooms, bathrooms, accommodates, and one-hot encoded neighborhood values.
+3. **Prediction**: Once trained, the model can predict the rental price based on user input, such as the number of bedrooms, bathrooms, and neighborhood.
+
+By using this model, the app can provide quick rental price predictions for Airbnb listings in Boston based on historical data.
+
+
 ## Prerequisites
 
 Before you can set up and run this app, ensure you have the following software installed:
